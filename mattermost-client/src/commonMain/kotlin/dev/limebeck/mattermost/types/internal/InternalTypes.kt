@@ -1,4 +1,4 @@
-package dev.limebeck.mattermost.internal
+package dev.limebeck.mattermost.types.internal
 
 import dev.limebeck.mattermost.ChannelId
 import dev.limebeck.mattermost.TeamId

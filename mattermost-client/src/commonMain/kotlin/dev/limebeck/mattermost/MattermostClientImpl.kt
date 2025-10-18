@@ -1,11 +1,11 @@
 package dev.limebeck.mattermost
 
 import dev.limebeck.libs.logger.logger
-import dev.limebeck.mattermost.internal.FileInfo
-import dev.limebeck.mattermost.internal.InternalEvent
-import dev.limebeck.mattermost.internal.Post
-import dev.limebeck.mattermost.internal.PostMetadata
-import dev.limebeck.mattermost.internal.PostToSend
+import dev.limebeck.mattermost.types.internal.FileInfo
+import dev.limebeck.mattermost.types.internal.InternalEvent
+import dev.limebeck.mattermost.types.internal.Post
+import dev.limebeck.mattermost.types.internal.PostMetadata
+import dev.limebeck.mattermost.types.internal.PostToSend
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
