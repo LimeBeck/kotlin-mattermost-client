@@ -1,4 +1,4 @@
-rootProject.name = "mattermost-client"
+rootProject.name = "mattermost-client-lib"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
