@@ -83,12 +83,12 @@ class MattermostClientImpl(
             while (isActive) {
                 try {
                     client.webSocket(url) {
-                        logger.info { "<3eaf6bd6> WebSocket соединение установлено: $url" }
+                        logger.info { "<3eaf6bd6> WebSocket connection established: $url" }
                         for (frame in incoming) {
                             val message = frame as? Frame.Text
                             if (message != null) {
                                 val text = message.readText()
-                                logger.debug { "<c362de7a> Получено сообщение из WebSocket: $text" }
+                                logger.debug { "<c362de7a> Received message from WebSocket: $text" }
                                 val event = jsonMapper.decodeFromString<InternalEvent>(text)
                                 internalEventsFlow.emit(event)
                             }
@@ -96,7 +96,7 @@ class MattermostClientImpl(
                     }
                 } catch (e: Exception) {
                     logger.error(e) { "WebSocket error:" }
-                    delay(3000) // Пауза перед reconnection
+                    delay(3000) // Pause before reconnection
                 }
             }
         }
@@ -143,7 +143,7 @@ class MattermostClientImpl(
                                 data = bytes,
                             )
                         }.onFailure {
-                            logger.error(it) { "<download-file-error> Ошибка загрузки файла ${file.id}" }
+                            logger.error(it) { "<download-file-error> Error downloading file ${file.id}" }
                         }.getOrNull()
                     }
 
@@ -154,7 +154,7 @@ class MattermostClientImpl(
                     text = post.message,
                     attachments = attachments,
                 )
-            }.onEach { logger.info { "<eb86d64d> Сообщение от пользователя ${it.userName}: ${it.text.take(200)}" } }
+            }.onEach { logger.info { "<eb86d64d> Message from user ${it.userName}: ${it.text.take(200)}" } }
 
     override suspend fun receiveNewChatStarted(): Flow<NewChatStartedEvent> = internalEventsFlow
         .filter { it.event == "direct_added" }
@@ -165,10 +165,10 @@ class MattermostClientImpl(
                 channelId = event.broadcast.channelId!!,
                 userId = userId!!,
             )
-        }.onEach { logger.info { "<eeb2bb55> Новый чат с пользователем с ID ${it.userId}" } }
+        }.onEach { logger.info { "<eeb2bb55> New chat with user ID ${it.userId}" } }
 
     override suspend fun sendMessage(channelId: ChannelId, message: String) {
-        logger.info { "<3c60bc9a> Отправка сообщения в канал $channelId: $message" }
+        logger.info { "<3c60bc9a> Sending message to channel $channelId: $message" }
 
         val messageChunks = splitMarkdown(message, chunkSize)
 
@@ -180,12 +180,12 @@ class MattermostClientImpl(
                     }
 
                     if (result.status != HttpStatusCode.Created) {
-                        throw RuntimeException("<b326ae01> Ошибка отправки сообщения в Mattermost status = ${result.status}. Ответ: ${result.bodyAsText()}")
+                        throw RuntimeException("<b326ae01> Error sending message to Mattermost. status = ${result.status}. Response: ${result.bodyAsText()}")
                     }
                 }
             }
         } catch (e: Exception) {
-            logger.error(e) { "<9ffa0dd3> Ошибка при отправке сообщения в Mattermost:" }
+            logger.error(e) { "<9ffa0dd3> Error while sending message to Mattermost:" }
         }
     }
 
