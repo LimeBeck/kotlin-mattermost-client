@@ -25,6 +25,7 @@ subprojects {
 
         pom {
             url.set("https://github.com/LimeBeck/kotlin-mattermost-client")
+            name.set("mattermost-client")
             description.set("Kotlin Client for Mattermost")
             developers {
                 developer {
