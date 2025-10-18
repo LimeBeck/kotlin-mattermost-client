@@ -18,6 +18,35 @@ subprojects {
 
     apply(plugin = "org.jetbrains.dokka")
     apply(plugin = "com.vanniktech.maven.publish")
+
+    mavenPublishing {
+        publishToMavenCentral()
+        signAllPublications()
+
+        pom {
+            url.set("https://github.com/LimeBeck/kotlin-mattermost-client")
+            description.set("Kotlin Client for Mattermost")
+            developers {
+                developer {
+                    id.set("LimeBeck")
+                    name.set("Anatoly Nechay-Gumen")
+                    email.set("mail@limebeck.dev")
+                }
+            }
+            licenses {
+                license {
+                    name.set("MIT license")
+                    url.set("https://github.com/LimeBeck/kotlin-mattermost-client/blob/master/LICENCE")
+                    distribution.set("repo")
+                }
+            }
+            scm {
+                connection.set("scm:git:git://github.com/LimeBeck/kotlin-mattermost-client.git")
+                developerConnection.set("scm:git:ssh://github.com/LimeBeck/kotlin-mattermost-client.git")
+                url.set("https://github.com/LimeBeck/kotlin-mattermost-client")
+            }
+        }
+    }
 }
 
 dokka {
@@ -39,33 +68,4 @@ dokka {
 
 dependencies {
     dokka(project(":mattermost-client"))
-}
-
-mavenPublishing {
-    publishToMavenCentral()
-    signAllPublications()
-
-    pom {
-        url.set("https://github.com/LimeBeck/kotlin-mattermost-client")
-        description.set("Kotlin Client for Mattermost")
-        developers {
-            developer {
-                id.set("LimeBeck")
-                name.set("Anatoly Nechay-Gumen")
-                email.set("mail@limebeck.dev")
-            }
-        }
-        licenses {
-            license {
-                name.set("MIT license")
-                url.set("https://github.com/LimeBeck/kotlin-mattermost-client/blob/master/LICENCE")
-                distribution.set("repo")
-            }
-        }
-        scm {
-            connection.set("scm:git:git://github.com/LimeBeck/kotlin-mattermost-client.git")
-            developerConnection.set("scm:git:ssh://github.com/LimeBeck/kotlin-mattermost-client.git")
-            url.set("https://github.com/LimeBeck/kotlin-mattermost-client")
-        }
-    }
 }

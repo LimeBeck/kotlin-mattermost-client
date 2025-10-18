@@ -1,8 +1,8 @@
 package dev.limebeck.mattermost.types.internal
 
-import dev.limebeck.mattermost.ChannelId
-import dev.limebeck.mattermost.TeamId
-import dev.limebeck.mattermost.UserId
+import dev.limebeck.mattermost.types.ChannelId
+import dev.limebeck.mattermost.types.TeamId
+import dev.limebeck.mattermost.types.UserId
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement

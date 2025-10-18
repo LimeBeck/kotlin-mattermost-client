@@ -1,6 +1,12 @@
 package dev.limebeck.mattermost
 
 import dev.limebeck.libs.logger.logger
+import dev.limebeck.mattermost.types.Attachment
+import dev.limebeck.mattermost.types.ChannelId
+import dev.limebeck.mattermost.types.DirectMessage
+import dev.limebeck.mattermost.types.NewChatStartedEvent
+import dev.limebeck.mattermost.types.TeamId
+import dev.limebeck.mattermost.types.UserId
 import dev.limebeck.mattermost.types.internal.FileInfo
 import dev.limebeck.mattermost.types.internal.InternalEvent
 import dev.limebeck.mattermost.types.internal.Post
