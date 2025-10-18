@@ -8,9 +8,6 @@ plugins {
     alias(libs.plugins.ktlint)
 }
 
-group = "dev.limebeck.mattermost"
-version = "1.0.0"
-
 kotlin {
     // JVM target
     jvm {

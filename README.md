@@ -1,3 +1,5 @@
+![Maven Central Version](https://img.shields.io/maven-central/v/dev.limebeck.libs/mattermost-client)
+
 # Mattermost Client Library
 
 Multiplatform Kotlin library for working with the Mattermost API. It helps you build bots and integrations that can receive direct messages, detect new chats, and send messages back to channels/users.
@@ -11,6 +13,47 @@ Multiplatform Kotlin library for working with the Mattermost API. It helps you b
 
 ## Module
 - [mattermost-client](mattermost-client) — core client with a simple high-level API.
+
+## Add as a dependency
+Coordinates (published to Maven Central):
+- Group: dev.limebeck.libs
+- Artifact: mattermost-client
+- Version: 1.0.0
+
+Gradle Kotlin DSL (build.gradle.kts):
+```kotlin
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("dev.limebeck.libs:mattermost-client:1.0.0")
+}
+```
+
+Gradle Groovy DSL (build.gradle):
+```groovy
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'dev.limebeck.libs:mattermost-client:1.0.0'
+}
+```
+
+Maven (pom.xml):
+```xml
+<dependencies>
+  <dependency>
+    <groupId>dev.limebeck.libs</groupId>
+    <artifactId>mattermost-client</artifactId>
+    <version>1.0.0</version>
+  </dependency>
+</dependencies>
+```
+
+Note: This is a Kotlin Multiplatform library. Gradle will pick the right variant for your target (JVM, JS, Linux) automatically.
 
 ## Quick start
 
